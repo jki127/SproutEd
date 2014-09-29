@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Sign-Up</title>
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <script src="jquery.min.js" type="text/javascript"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.8.min.js" type="text/javascript"></script>
+  <script src="../js/parse-keys.js" type="text/javascript"></script>
+  <script src="main.js" type="text/javascript"></script>
+</head>
+
+  <body>
+    <h1 class="title">SproutEd</h1>
+
+    <form>
+      <input id="user" type="text" placeholder="Desired Username">
+      <span type="warn" id="uwarn"></span>
+      <br>
+      <input id="pass" type="password" placeholder="Password">
+      <span type="warn" id="pwarn"></span>
+      <br>
+      <input onkeyup="checkPassConfirm()" id="conpass" type="password" placeholder="Password Confirmation">
+      <span type="warn" id="mismatch"></span>
+      <br>
+      <input id="email" type="text" placeholder="Email"/>
+      <span type="warn" id="ewarn"></span>
+      <br>
+      <input id="school" type="text" placeholder="School"/>
+      <span type="warn" id="swarn"></span>
+      <br>
+      <div onclick="validate()" id="done">Register!</div>
+    </form>
+  </body>
+
+</html>

@@ -1,0 +1,211 @@
+#user {
+  width: 100%;
+  text-align: right;
+  color: gray;
+}
+.threadHTML {
+  font-weight: bold;
+  font-family: Droid Sans, sans-serif;
+  background: black;
+  width: 90%;
+  color: white;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.65);
+  margin-top: 8px;
+  padding: 5px 0 5px 10px;
+  font-variant: small-caps;
+  font-size: 20px;
+  z-index: 99;
+}
+#tags > span {
+  margin-left: 2px;
+  font-size: 12px;
+}
+#tags{
+  margin-top: 3px;
+}
+#messages {
+  background: transparent;
+  font-family: Quicksand;
+}
+.author {
+  font-size: 12px;
+  color: gray;
+  text-align: right;
+  margin-right: 8px;
+}
+.message {
+  position: relative;
+/*
+  padding: 5px 10px;
+*/
+  background: #FFFFFF;
+  margin: 5px;
+  min-height: 75px;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.55);
+}
+.messageImage{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.messageImage > img{
+  display: block;
+  margin: auto;
+  border: 5px white solid;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.65);
+}
+.messageBody {
+  font-family: Droid Sans, sans-serif;
+  font-size: 17px;
+  margin-left: 8px;
+}
+.message:nth-last-child(n+2) {
+  border-bottom: lightgray 1px solid;
+}
+.plus{
+  box-sizing: border-box;
+  padding-left: 10px;
+  line-height: 200%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  left:105%;
+  background: lightgreen;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: Droid Sans, sans-serif;
+}
+.minus{
+  box-sizing: border-box;
+  padding-right: 10px;
+  line-height: 200%;
+  text-align: right;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  right: 105%;
+  background: darkred;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: Droid Sans, sans-serif;
+}
+
+#tagName {
+  font-family: Droid Sans, sans-serif;
+  text-transform: Uppercase;
+  font-size: 18px;
+  color: white;
+  background: #16a085;
+  padding: 3px 5px;
+}
+#tagName:before {
+  font-size: 17px;
+  content:"#";
+  margin-right: 2px;
+  background: white;
+  color: black;
+  padding: 0 2px;
+  font-weight: bold;
+}
+#wrap {
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  height: 860px;
+  /*Must be same height as .ui-panel-inner height*/
+  /*Stupid Phonegap Viewport Error*/
+  background: url('../img/wood_bg.jpg') !important;
+  overflow-x: hidden;
+}
+#left-panel {
+  background: url('../img/sidebar-bg.png');
+}
+.ui-panel-inner {
+  padding: 0;
+  height: 860px;
+  /*Must be same height as #wrap height*/
+  box-shadow: inset -4px 0 10px 0 rgba(0, 0, 0, 0.65);
+  background: url('../img/sidebar-bg.png');
+  color: white;
+}
+.searchContainer {
+  width: 95%;
+  margin: 0 auto;
+}
+#nav {
+  list-style: none;
+  padding-left: 0;
+}
+#nav > li {
+  padding: 8px 0 8px 10px;
+  font-family: Quicksand;
+}
+#nav > li:nth-last-child(n+2) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.menu-sub {
+  color: black;
+  background: white;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 1px;
+  font-family: Quicksand;
+  font-variant: small-caps;
+  padding: 3px 5px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.65);
+}
+#logout {
+  padding: 4px;
+  margin-top: 25px;
+}
+#open_menu {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  color: white;
+  font-size: 20px;
+  padding: 0 10px;
+  font-weight: 400;
+}
+#open_menu:hover {
+  text-decoration: none;
+  color: white;
+}
+#open_menu i {
+  /*Three-line Navicon*/
+  font-weight: 400;
+  border-radius: 4px;
+}
+.logo {
+  display: block;
+  margin: auto;
+}
+.topbar {
+  width: 100%;
+  background: rgba(39, 174, 96, 1.0);
+  padding-top: 5px;
+  padding-bottom: 8px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.65);
+}
+body {
+  margin-top: 30px;
+}
+.bottomContainer{
+  margin-left: 8px;
+}
+.inputContainer{
+  width: 70%;
+  float:left;
+}
+.replyContainer {
+  width: 25%;
+  float: right;
+  margin-top: 8px;
+}

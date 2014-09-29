@@ -1,0 +1,125 @@
+<!DOCTYPE>
+<html>
+  
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, user-scalable=0">
+    <!--FONTS-->
+    <link href='fonts/quicksand/stylesheet.css' rel='stylesheet' type='text/css'>
+    <!--/FONTS-->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <link href="css/jquery.mobile.css" type="text/css" rel="stylesheet">
+    <link href="css/main.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery.mobile.js" type="text/javascript"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.8.min.js" type="text/javascript"></script>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .button1 {
+        background: lightgreen;
+        -webkit-border-radius: 4px;
+        padding: 5px 2px;
+        text-shadow: 0 0 5px black;
+      }
+      .button2 {
+        background: #666666;
+        -webkit-border-radius: 4px;
+        padding: 5px 2px;
+      }
+      body {
+        background: black;
+      }
+      td label {
+        color: black;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>New Thread</h2>
+    <table>
+      <tr>
+        <td>
+          <select data-theme="b" id="theClass" style="background: white; color: black;">
+            <option value="B45fpGxF6N">Math 101</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Name</label>
+        </td>
+        <td>
+          <input id="name" name="Name" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Description</label>
+        </td>
+        <td>
+          <input id="desc" name="Description" type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Tags</label>
+        </td>
+        <td>
+          <input id="tags" name="Tags" type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="post" class="button1">Post</div>
+        </td>
+        <td>
+          <div class="button2">Cancel</div>
+        </td>
+      </tr>
+    </table>
+    <br>
+
+    <script src="../../js/parse-keys.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var currentUser = Parse.User.current();
+        var currentUserId = currentUser.id;
+        var postButton = $('#post');
+        var Thread = Parse.Object.extend("Thread");
+        postButton.on('click', function() {
+          var thread = new Thread();
+          var name = document.getElementById("name").value;
+          var desc = document.getElementById("desc").value;
+          
+          if(document.getElementById("tags").value){
+            var tags = document.getElementById("tags").value;
+            tags = tags.split(" ");
+            thread.set("tags", tags);
+          }
+          
+          thread.set("name", name);
+          thread.set("description", desc);
+          thread.set("ownerId", currentUserId);
+          
+          thread.save().then(function(thisThread) {
+            var Class = Parse.Object.extend("Class");
+            var classId = document.getElementById("theClass").value;
+            var queryClass = new Parse.Query(Class);
+
+            queryClass.equalTo("objectId", classId);
+            queryClass.first().then(function(currentClass) {
+              var threadIds = currentClass.get("threadIds")
+              threadIds.push(thisThread.id);
+              currentClass.save("threadIds", threadIds);
+              // currentClass.add("threadIds", thisThread.id).then(function(){
+              // 	window.location.assign("index.html");
+              // });				
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+
+</html>
